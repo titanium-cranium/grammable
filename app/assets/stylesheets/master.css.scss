@@ -1,2 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.navbar-brand {
+  max-height: 100px;
+  max-width: 100px;
+  padding-top: 2px;
+}

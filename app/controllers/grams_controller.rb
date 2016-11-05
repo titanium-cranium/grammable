@@ -4,4 +4,8 @@ class GramsController < ApplicationController
 
   end
 
+  def new
+
+  end
+
 end
