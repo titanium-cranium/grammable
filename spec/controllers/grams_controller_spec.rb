@@ -15,4 +15,14 @@ RSpec.describe GramsController, type: :controller do
     end
   end
 
+  describe "grams#create action" do
+    it "should successfully great a new gram with message = 'Hello!' " do
+      post :create, gram: {message: 'Hello!'}
+      expect(response).to redirect_to root_path
+
+      gram = Gram.last
+      expect(gram.message).to eq("Hello!")
+    end
+  end
+
 end
