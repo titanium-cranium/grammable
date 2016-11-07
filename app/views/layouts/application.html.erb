@@ -47,7 +47,13 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <% if user_signed_in? %>
+            <li> <%= link_to 'Sign_out', destroy_user_session_path, :method => :delete %> </li>
+        <% else %>
+              <li><%= link_to 'Sign_in', new_user_session_path %></li>
+              <li><%= link_to 'Sign_up', new_user_registration_path %></li>
+        <% end %>
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -62,6 +68,15 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<!--Alerts-->
+<% if notice.present? %>
+  <p class=“alert alert-info”><%= notice %></p>
+<% end %>
+
+<% if alert.present? %>
+  <p class="alert alert-danger”><%= alert %></p>
+<% end %>
 
 
 
